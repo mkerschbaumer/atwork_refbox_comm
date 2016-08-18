@@ -1,5 +1,5 @@
-# atwork refbox comm
-Catkin Meta Package for communicating with the RoboCup@Work RefBox.
+# @Work RefBox Communication
+Catkin Meta Package for communicating with the @Work RefBox.
 
 Provides:
 
@@ -10,7 +10,7 @@ Provides:
 ## Installation
 
     cd <catkin_workspace>/src
-    git clone git@github.com:robocup-at-work/atwork_refbox_comm.git
+    git clone git@github.com:industrial-robotics/atwork_refbox_comm.git
     cd atwork_refbox_comm
     git submodule init
     git submodule update
