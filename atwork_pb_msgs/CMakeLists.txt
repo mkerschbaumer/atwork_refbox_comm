@@ -19,10 +19,15 @@ ELSE()
   )
 ENDIF(EXISTS "${ATWORK_MSGS_DIR}" AND IS_DIRECTORY "${ATWORK_MSGS_DIR}")
 
+catkin_package(
+  LIBRARIES
+    atwork_pb_msgs
+  INCLUDE_DIRS ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}
+)
+
 file(GLOB CFH_PROTOS ${CFH_ROOT_DIR}/atwork/msgs/*.proto)
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${CFH_PROTOS})
-
 add_custom_target(copy ALL
   DEPENDS ${PROTO_HDRS}
 )
@@ -31,11 +36,6 @@ add_custom_target(copy ALL
 add_library(atwork_pb_msgs SHARED ${PROTO_SRCS})
 target_link_libraries(atwork_pb_msgs ${PROTOBUF_LIBRARIES})
 
-
-catkin_package(
-  LIBRARIES
-    atwork_pb_msgs
-)
 
 
 

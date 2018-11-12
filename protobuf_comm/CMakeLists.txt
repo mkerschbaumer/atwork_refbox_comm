@@ -1,11 +1,14 @@
 cmake_minimum_required(VERSION 2.8.7)
 project(protobuf_comm)
 
+find_package(catkin REQUIRED)
 find_package(Boost 1.46.1 REQUIRED thread system)
 find_package(OpenSSL REQUIRED)
 
+
 set(CFH_ROOT_DIR ${PROJECT_SOURCE_DIR}/../atwork_refbox)
 set(PROTOBUF_COMM_SRC_DIR ${CFH_ROOT_DIR}/src/libs/protobuf_comm)
+set(PROTOBUF_COMM_INCLUDE_DIR ${CFH_ROOT_DIR}/src/libs)
 set(CFH_LIBS_DIR ${CFH_ROOT_DIR}/src/libs)
 
 #link_directories(${Boost_LIBRARY_DIRS})
@@ -30,19 +33,18 @@ include_directories(
   ${CFH_LIBS_DIR}
 )
 
-file(GLOB PROTOBUF_COMM_SOURCES ${PROTOBUF_COMM_SRC_DIR}/*.cpp)
-file(GLOB PROTOBUF_COMM_HEADERS ${PROTOBUF_COMM_SRC_DIR}/*.h)
-
-add_library(protobuf_comm SHARED ${PROTOBUF_COMM_SOURCES})
-
-target_link_libraries(protobuf_comm ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES})
-
-find_package(catkin REQUIRED)
 
 catkin_package(
   LIBRARIES
     protobuf_comm
+  INCLUDE_DIRS ${PROTOBUF_COMM_INCLUDE_DIR}
 )
+file(GLOB PROTOBUF_COMM_SOURCES ${PROTOBUF_COMM_SRC_DIR}/*.cpp)
+file(GLOB PROTOBUF_COMM_HEADERS ${PROTOBUF_COMM_SRC_DIR}/*.h)
+add_library(protobuf_comm SHARED ${PROTOBUF_COMM_SOURCES})
+
+target_link_libraries(protobuf_comm ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES})
+
 
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/${PROJECT_NAME} )
 

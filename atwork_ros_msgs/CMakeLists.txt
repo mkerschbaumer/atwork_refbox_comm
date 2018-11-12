@@ -13,6 +13,7 @@ add_message_files(
   FILES
     AttentionMessage.msg
     BenchmarkState.msg
+    BenchmarkFeedback.msg
     Inventory.msg
     Item.msg
     LocationIdentifier.msg
