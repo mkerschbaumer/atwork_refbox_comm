@@ -7,6 +7,7 @@ uint8 PPT  = 4 # Precision Placement Test
 uint8 CBT  = 5 # Conveyor Belt Test
 uint8 AWF  = 6 # At Work Final
 uint8 IRL  = 7 # Industrial Robotics League Challenge
+uint8 FBM  = 8 # Functionality Benchmark 
 
 # e.g. "BTT 2: Basic Transportation Test instance #2"
 std_msgs/UInt64 type
