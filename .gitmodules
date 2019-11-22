@@ -1,4 +1,3 @@
 [submodule "at_work_central_factory_hub"]
     path = atwork_refbox
-    url = https://github.com/industrial-robotics/atwork_central_factory_hub.git
-    branch = erl-2018
+    url = https://github.com/mkerschbaumer/atwork_central_factory_hub.git
